@@ -213,7 +213,7 @@ Hệ thống cung cấp:
 * Sản phẩm đã xóa
 
 Dữ liệu được lấy trực tiếp từ Smart Contract. <p align="center">
-  <img src="SODO.png" alt="Sơ đồ hệ thống" width="900"/>
+  <img src="Poster.png" alt="Sơ đồ hệ thống" width="900"/>
 </p>
 
 <p align="center">
