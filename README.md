@@ -21,99 +21,283 @@
 
 ---
 
-## 📖 1. Giới thiệu hệ thống
-Chat Room là một ứng dụng giao tiếp nhóm theo thời gian thực trong LAN, sử dụng giao thức **UDP Multicast**.  
-Người dùng có thể gửi/nhận tin nhắn đồng thời mà không cần server trung tâm. Hệ thống còn hỗ trợ:
+<h2 align="center">
+    🎓 Faculty of Information Technology (Dai Nam University)
+</h2>
 
-- **Đăng nhập** bằng tài khoản trong DB (SQLite).
-- **Phân quyền**: admin có thể kick user, gửi thông báo.
-- **Lưu lịch sử chat** trong DB để truy xuất sau.
-- **Giao diện Swing** trực quan, dễ sử dụng.
+<h2 align="center">
+    HỆ THỐNG TRUY XUẤT NGUỒN GỐC NÔNG SẢN ỨNG DỤNG BLOCKCHAIN ETHEREUM
+</h2>
 
----
+<div align="center">
+    <p align="center">
+        <img alt="DaiNam University Logo" width="200" src="https://github.com/user-attachments/assets/77fe0fd1-2e55-4032-be3c-b1a705a1b574" />
+    </p>
 
-## 🔧 2. Công nghệ sử dụng
+[![Faculty of Information Technology](https://img.shields.io/badge/Faculty%20of%20Information%20Technology-blue?style=for-the-badge)](https://dainam.edu.vn/vi/khoa-cong-nghe-thong-tin)
 
-### 🖥 Java + Swing
-- Ngôn ngữ chính: **Java (JDK 17/21)**.  
-- Giao diện xây dựng bằng **Java Swing**: `JFrame`, `JTextArea`, `JTable`, `JDialog`, `JMenu`.  
+[![DaiNam University](https://img.shields.io/badge/DaiNam%20University-orange?style=for-the-badge)](https://dainam.edu.vn)
 
-### 🌐 UDP Multicast
-- Sử dụng `MulticastSocket` + `DatagramPacket`.  
-- Multicast group: `239.1.1.1`, cổng `5000`.  
-- Gói điều khiển (login, history, kick…) qua UDP unicast cổng `6000`.
-
-### 🧵 Đa luồng
-- Server: `ControlServer` + `MulticastLogger` chạy song song.  
-- Client: mỗi client có luồng riêng để lắng nghe multicast.
-
-### 💾 CSDL SQLite
-- **users**: lưu username, mật khẩu hash, role (user/admin).  
-- **messages**: lưu lịch sử chat (room, user, text, timestamp).  
-- Dùng thư viện `sqlite-jdbc-x.x.x.jar` (import vào Eclipse).  
-
-### 🔑 Bảo mật & Phân quyền
-- Mật khẩu hash SHA-256 + salt.  
-- Role = `admin` → menu Admin bật: Kick user, gửi thông báo.  
+</div>
 
 ---
 
-## 🚀 3. Hình ảnh chức năng
+# 📖 1. Giới thiệu hệ thống
 
+Hệ thống truy xuất nguồn gốc nông sản là một ứng dụng web sử dụng công nghệ Blockchain Ethereum nhằm quản lý và xác thực thông tin sản phẩm nông nghiệp từ khâu sản xuất đến tiêu thụ.
 
- <p align="center">
-  <img src="docs/image.png" alt="Ảnh minh họa" width="800"/>
-</p>
-<p align="center"><em>Hình 1: Đăng nhập và đăng ký</em></p>
+Mục tiêu của hệ thống là giúp người tiêu dùng, doanh nghiệp và cơ quan quản lý có thể kiểm tra nguồn gốc sản phẩm một cách minh bạch, chính xác và không thể bị chỉnh sửa sau khi dữ liệu được lưu lên Blockchain.
 
-<p align="center">
-  <img src="docs/2.png" alt="Ảnh 2" width="800"/>
-</p>
-<p align="center"><em>Hình 2: Chọn và kết nối đến sever</em></p>
-<p align="center">
-  <img src="docs/3.png" alt="Ảnh 3" width="800"/>
-</p>
-<p align="center"><em>Hình 3: Giao diện chat nhóm</em></p>
-<p align="center">
-  <img src="docs/4.png" alt="Ảnh 4" width="800"/>
-</p>
-<p align="center"><em>Hình 4: Xem lại lịch sử</em></p>
+Hệ thống hỗ trợ các chức năng:
 
+* Thêm sản phẩm nông sản lên Blockchain.
+* Lưu thông tin nguồn gốc và nhà sản xuất.
+* Quản lý hình ảnh sản phẩm.
+* Cập nhật lịch sử vận chuyển.
+* Tra cứu thông tin sản phẩm theo ID.
+* Xóa mềm sản phẩm (Soft Delete).
+* Kết nối ví MetaMask để xác thực giao dịch.
+* Thống kê số lượng sản phẩm đang hoạt động và đã xóa.
 
 ---
 
-## 📝 4. Cài đặt & chạy
+# 🔧 2. Công nghệ sử dụng
 
-### Bước 1. Cài môi trường
-- Cài **JDK 17+** ([Adoptium Temurin](https://adoptium.net) hoặc Oracle JDK).  
-- Tải **SQLite JDBC Driver** (sqlite-jdbc-x.x.x.jar) → Add vào project (Build Path).  
-- Cài [DB Browser for SQLite](https://sqlitebrowser.org/) để xem DB.
+## 🌐 Frontend Web
 
-### Bước 2. Tạo project
-- Trong Eclipse, tạo project `MulticastChat`.  
-- Thư mục chính:
-  - `client/`: `ChatClientMain.java`, `LoginDialog.java`, `AdminDialog.java`.  
-  - `server/`: `ServerMain.java`, `ControlServer.java`, `MulticastLogger.java`, `DbUserStore.java`, `DbMessageStore.java`, `MessageStore.java`, `ChatMessage.java`.
+* HTML5
+* CSS3
+* JavaScript
 
-### Bước 3. Tạo database
-- Thư mục `data/chat.db`.  
-- Tạo bảng:
+Chức năng:
 
-```sql
-CREATE TABLE users(
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  username TEXT UNIQUE,
-  pass_hash TEXT,
-  salt TEXT,
-  role TEXT,
-  created_at INTEGER,
-  last_seen INTEGER
-);
+* Xây dựng giao diện người dùng.
+* Hiển thị thông tin sản phẩm.
+* Hiển thị lịch sử vận chuyển.
+* Kết nối Blockchain.
 
-CREATE TABLE messages(
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  room TEXT,
-  user TEXT,
-  text TEXT,
-  ts INTEGER
-);
+---
+
+## ⛓ Blockchain Ethereum
+
+* Solidity
+* Ethereum Sepolia Testnet
+* Remix IDE
+
+Chức năng:
+
+* Xây dựng Smart Contract.
+* Lưu trữ dữ liệu sản phẩm.
+* Lưu lịch sử vận chuyển.
+* Đảm bảo tính minh bạch và bất biến của dữ liệu.
+
+---
+
+## 🦊 MetaMask
+
+MetaMask được sử dụng để:
+
+* Kết nối ví Ethereum.
+* Xác thực người dùng.
+* Ký giao dịch Blockchain.
+* Thanh toán phí Gas trên mạng Ethereum.
+
+---
+
+## 🔗 Ethers.js
+
+Thư viện Ethers.js được sử dụng để:
+
+* Kết nối Website với Smart Contract.
+* Gửi giao dịch lên Blockchain.
+* Đọc dữ liệu từ Blockchain.
+* Quản lý ví Ethereum.
+
+---
+
+## 🖼 Lưu trữ hình ảnh
+
+Hệ thống hỗ trợ:
+
+* Upload ảnh từ máy tính.
+* Lưu đường dẫn ảnh lên Blockchain.
+* Hiển thị ảnh sản phẩm khi tra cứu.
+
+Mô hình lưu trữ:
+
+```text
+Ảnh sản phẩm
+↓
+Cloudinary / Firebase Storage
+↓
+Link ảnh
+↓
+Blockchain Ethereum
+```
+
+---
+
+# 🚀 3. Chức năng hệ thống
+
+## 📦 Quản lý sản phẩm
+
+Người dùng có thể:
+
+* Thêm sản phẩm mới.
+* Xem thông tin sản phẩm.
+* Xóa sản phẩm.
+* Cập nhật trạng thái vận chuyển.
+
+Thông tin lưu trữ:
+
+* ID sản phẩm
+* Tên sản phẩm
+* Nơi sản xuất
+* Ngày thu hoạch
+* Nhà sản xuất
+* Hình ảnh sản phẩm
+
+---
+
+## 🚚 Quản lý vận chuyển
+
+Hệ thống cho phép cập nhật:
+
+* Đã thu hoạch
+* Đã đóng gói
+* Đã đến kho
+* Đang vận chuyển
+* Đã giao hàng
+
+Mỗi lần cập nhật sẽ lưu:
+
+* Trạng thái
+* Địa điểm
+* Thời gian
+
+Toàn bộ lịch sử được lưu trên Blockchain.
+
+---
+
+## 🔍 Truy xuất nguồn gốc
+
+Người dùng nhập ID sản phẩm.
+
+Website sẽ:
+
+```text
+Website
+↓
+Smart Contract
+↓
+Blockchain
+↓
+Thông tin sản phẩm
+```
+
+Sau đó hiển thị:
+
+* Thông tin nguồn gốc
+* Nhà sản xuất
+* Ảnh sản phẩm
+* Lịch sử vận chuyển
+
+---
+
+## 📊 Dashboard thống kê
+
+Hệ thống cung cấp:
+
+* Tổng số sản phẩm
+* Sản phẩm đang hoạt động
+* Sản phẩm đã xóa
+
+Dữ liệu được lấy trực tiếp từ Smart Contract.
+
+---
+
+# 📝 4. Cài đặt và chạy hệ thống
+
+## Bước 1. Chuẩn bị môi trường
+
+Cài đặt:
+
+* Google Chrome
+* MetaMask Extension
+* Visual Studio Code
+* Live Server
+* Remix IDE
+
+---
+
+## Bước 2. Triển khai Smart Contract
+
+Mở Remix IDE:
+
+* Compile Smart Contract bằng Solidity.
+* Deploy lên mạng Ethereum Sepolia.
+* Copy Contract Address.
+* Copy ABI.
+
+---
+
+## Bước 3. Cấu hình Website
+
+Mở file:
+
+```text
+index.html
+```
+
+Cập nhật:
+
+```javascript
+const contractAddress = "ĐỊA_CHỈ_CONTRACT";
+```
+
+và
+
+```javascript
+const contractABI = [...];
+```
+
+---
+
+## Bước 4. Chạy Website
+
+Mở bằng Live Server:
+
+```text
+http://127.0.0.1:5500
+```
+
+Sau đó:
+
+* Kết nối MetaMask.
+* Chuyển mạng sang Sepolia.
+* Thêm sản phẩm.
+* Tra cứu dữ liệu Blockchain.
+
+---
+
+# 👨‍🏫 Giảng viên hướng dẫn
+
+ThS. Trần Đăng Công
+
+---
+
+# 👨‍🎓 Sinh viên thực hiện
+
+* Họ và tên: ..................................
+* Lớp: .........................................
+* Khoa Công nghệ Thông tin
+* Trường Đại học Đại Nam
+
+---
+
+# 📌 Kết luận
+
+Đề tài đã xây dựng thành công hệ thống truy xuất nguồn gốc nông sản ứng dụng Blockchain Ethereum.
+
+Hệ thống cho phép lưu trữ và quản lý dữ liệu sản phẩm một cách minh bạch, an toàn và không thể chỉnh sửa trái phép. Người dùng có thể dễ dàng kiểm tra nguồn gốc sản phẩm, theo dõi lịch sử vận chuyển và xác thực thông tin thông qua Blockchain.
+
