@@ -282,14 +282,14 @@ Sau đó:
 
 # 👨‍🏫 Giảng viên hướng dẫn
 
-ThS. Trần Đăng Công
+Thầy: Trần Đăng Công
 
----
+Trưởng Khoa CNTT
 
 # 👨‍🎓 Sinh viên thực hiện
 
-* Họ và tên: ..................................
-* Lớp: .........................................
+* Họ và tên: Dương Xuân Thành
+* Lớp: CNTT16-02
 * Khoa Công nghệ Thông tin
 * Trường Đại học Đại Nam
 
