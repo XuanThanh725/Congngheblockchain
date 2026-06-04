@@ -212,14 +212,14 @@ Hệ thống cung cấp:
 * Sản phẩm đang hoạt động
 * Sản phẩm đã xóa
 
-Dữ liệu được lấy trực tiếp từ Smart Contract.
-<p align="center">
+Dữ liệu được lấy trực tiếp từ Smart Contract. <p align="center">
   <img src="SODO.png" alt="Sơ đồ hệ thống" width="900"/>
 </p>
 
 <p align="center">
   <em>Hình X: Sơ đồ kiến trúc hệ thống truy xuất nguồn gốc nông sản Blockchain</em>
 </p>
+
 ---
 ---
 # 📝 4. Cài đặt và chạy hệ thống
