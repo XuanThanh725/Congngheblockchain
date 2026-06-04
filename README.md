@@ -215,6 +215,70 @@ Hệ thống cung cấp:
 Dữ liệu được lấy trực tiếp từ Smart Contract.
 
 ---
+---
+
+# 🏗️ 3. Sơ đồ kiến trúc hệ thống
+
+<p align="center">
+  <img src="docs/system_architecture.png" alt="System Architecture" width="900"/>
+</p>
+
+<p align="center">
+  <em>Hình X: Sơ đồ kiến trúc hệ thống truy xuất nguồn gốc nông sản Blockchain</em>
+</p>
+
+### Mô tả sơ đồ
+
+Hệ thống được xây dựng theo mô hình Web3 gồm các thành phần chính:
+
+```text
+Người dùng
+      │
+      ▼
+Website (HTML/CSS/JavaScript)
+      │
+      ▼
+MetaMask Wallet
+      │
+      ▼
+Ethers.js
+      │
+      ▼
+Smart Contract (Solidity)
+      │
+      ▼
+Ethereum Blockchain (Sepolia)
+```
+
+Ngoài ra, hình ảnh sản phẩm được lưu trữ ngoài Blockchain nhằm giảm chi phí lưu trữ:
+
+```text
+Ảnh sản phẩm
+      │
+      ▼
+Cloudinary / Firebase Storage
+      │
+      ▼
+Link ảnh
+      │
+      ▼
+Blockchain Ethereum
+```
+
+### Luồng hoạt động
+
+**Bước 1:** Người dùng nhập thông tin sản phẩm trên Website.
+
+**Bước 2:** Website gửi yêu cầu đến MetaMask để xác nhận giao dịch.
+
+**Bước 3:** MetaMask ký giao dịch và gửi lên Smart Contract.
+
+**Bước 4:** Smart Contract lưu dữ liệu sản phẩm lên Blockchain Ethereum.
+
+**Bước 5:** Khi tra cứu, Website đọc dữ liệu từ Blockchain thông qua Ethers.js.
+
+**Bước 6:** Hệ thống hiển thị thông tin sản phẩm, lịch sử vận chuyển và hình ảnh cho người dùng.
+
 
 # 📝 4. Cài đặt và chạy hệ thống
 
