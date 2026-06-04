@@ -216,18 +216,6 @@ Dữ liệu được lấy trực tiếp từ Smart Contract.
 
 ---
 ---
-
-# 🏗️ 3.1 Sơ đồ kiến trúc hệ thống
-
-<p align="center">
-  <img src="docs/SODO.png" width="900">
-</p>
-
-<p align="center">
-  <em>Hình X: Sơ đồ kiến trúc hệ thống truy xuất nguồn gốc nông sản Blockchain</em>
-
-
-</p>
 # 📝 4. Cài đặt và chạy hệ thống
 
 ## Bước 1. Chuẩn bị môi trường
