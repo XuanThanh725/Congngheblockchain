@@ -4,7 +4,7 @@
     </a>
 </h2>
 <h2 align="center">
-    CHAT ROOM DÙNG UDP MULTICAST
+     Hệ thống truy xuất nguồn gốc nông sản
 </h2>
 <div align="center">
     <p align="center">
