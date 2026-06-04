@@ -217,7 +217,7 @@ Dữ liệu được lấy trực tiếp từ Smart Contract.
 ---
 ---
 
-# 🏗️ 3. Sơ đồ kiến trúc hệ thống
+# 🏗️ 3.1 Sơ đồ kiến trúc hệ thống
 
 <p align="center">
   <img src="docs/SODO.png" width="900">
