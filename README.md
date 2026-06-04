@@ -225,6 +225,8 @@ Dữ liệu được lấy trực tiếp từ Smart Contract.
 
 <p align="center">
   <em>Hình X: Sơ đồ kiến trúc hệ thống truy xuất nguồn gốc nông sản Blockchain</em>
+
+
 </p>
 # 📝 4. Cài đặt và chạy hệ thống
 
